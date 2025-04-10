@@ -224,13 +224,28 @@ const da = new DynamicAdapt(`max`);
 da.init();
 //===========================================================
 
-const sliderLisOn = new Swiper(".slider-jop__swiper", {
-  slidesPerView: 2.5,
-
+const sliderLisOn = new Swiper(".slider-jop__swiper", { 
+  grabCursor: true,
   // Optional parameters
-  direction: "horizontal",
-  loop: true,
+  loop: false,
 
+  // Responsive breakpoints
+  breakpoints: {
+    // when window width is >= 320px
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 20,
+    },
+    // when window width is >= 480px
+    980: {
+      slidesPerView: 2,
+      spaceBetween: 30,
+    },
+    1000: {
+      slidesPerView: 2.5,
+      spaceBetween: 34,
+    },
+  },
   // If we need pagination
   pagination: {
     el: ".swiper-pagination",
@@ -249,11 +264,25 @@ const sliderLisOn = new Swiper(".slider-jop__swiper", {
 });
 
 const sliderLisTon = new Swiper(".word__swiper", {
-  slidesPerView: 2.5,
-  zoom: true,
-  // Optional parameters
-  direction: "horizontal",
-  loop: true,
+  
+	centeredSlides: true,
+  // Optional parameters  
+  breakpoints: {
+    // when window width is >= 320px
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 20,
+    },
+    // when window width is >= 480px
+    980: {
+      slidesPerView: 2,
+      spaceBetween: 30,
+    },
+    1000: {
+      slidesPerView: 3,
+      spaceBetween: 34,
+    },
+  },
 
   // If we need pagination
   pagination: {
@@ -262,6 +291,7 @@ const sliderLisTon = new Swiper(".word__swiper", {
     bulletClass: `word__bullet`,
     bulletActiveClass: `word__bullet--active`,
   },
+ 
 });
 
 function scrollActions() {
